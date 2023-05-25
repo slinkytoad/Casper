@@ -588,7 +588,7 @@ production stylesheet in assets/built/screen.css
     letter-spacing: -0.005em;
     font-size: 1.6rem;
     border-radius: 48px;
-    color: #fff;
+    color: #15171a;
     background: var(--ghost-accent-color);
 }
 
