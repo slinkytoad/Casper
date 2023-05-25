@@ -12,18 +12,22 @@ into the {body} tag of the default.hbs template --}}
 
     <header class="article-header gh-canvas">
 
+        <h1 class="article-title">{{title}}</h1>
+
         <div class="article-tag post-card-tags">
+            {{#if featured}}
+                <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
+            {{/if}}
             {{#primary_tag}}
                 <span class="post-card-primary-tag">
                     <a href="{{url}}">{{name}}</a>
                 </span>
             {{/primary_tag}}
-            {{#if featured}}
-                <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
-            {{/if}}
         </div>
 
-        <h1 class="article-title">{{title}}</h1>
+        <div class="article-tag post-card-tags">
+            {{tags from="2" separator="|" prefix="<strong><b>Also tagged in:</b></strong>"}}
+        </div>
 
         {{#if custom_excerpt}}
             <p class="article-excerpt">{{custom_excerpt}}</p>
@@ -136,5 +140,23 @@ into the {body} tag of the default.hbs template --}}
 
     {{/get}}
 {{/if}}
+
+{{!-- this script makes it possible to view the images in a larger format. --}}
+<script>
+const images = document.querySelectorAll('.kg-image-card img, .kg-gallery-card img');
+
+// Lightbox function
+images.forEach(function (image) {
+  var wrapper = document.createElement('a');
+  wrapper.setAttribute('data-no-swup', '');
+  wrapper.setAttribute('data-fslightbox', '');
+  wrapper.setAttribute('href', image.src);
+  wrapper.setAttribute('aria-label', 'Click for Lightbox');
+  image.parentNode.insertBefore(wrapper, image.parentNode.firstChild);
+  wrapper.appendChild(image);
+});
+
+refreshFsLightbox();
+</script>
 
 {{/post}}

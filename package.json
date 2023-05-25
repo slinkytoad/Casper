@@ -94,9 +94,10 @@
                 "options": [
                     "Logo on cover",
                     "Logo in the middle",
-                    "Stacked"
+                    "Stacked",
+                    "Logo on the left"
                 ],
-                "default": "Logo on cover"
+                "default": "Logo on the left"
             },
             "title_font": {
                 "type": "select",
